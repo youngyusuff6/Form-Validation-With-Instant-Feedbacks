@@ -169,7 +169,7 @@ const showSuccess = (input) => {
 
 form.addEventListener('submit', function (e) {
     // prevent the form from submitting
-    e.preventDefault();
+    
 
     // validate fields
     let isUsernameValid = checkUsername(),
@@ -187,9 +187,10 @@ form.addEventListener('submit', function (e) {
         isConfirmPasswordValid;
 
     // submit to the server if the form is valid
-    if (isFormValid) {
-
+    if (!isFormValid) {
+        e.preventDefault();
     }
+        return true;    
 });
 
 
